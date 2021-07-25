@@ -1,0 +1,53 @@
+apiVersion: orders/v1
+kind: Component
+metadata:
+  name: vasco-order-v1
+  title: Orders service Version 2
+  description: Orders service 
+  labels:
+    chapter-type: cp
+    business-unit: sf
+    itam/name: ORDER
+    ability/name: ORDER
+  annotations:
+    bitbucket.atlassian.com/repository: DS-SES/svc-payment-sales-order-v2
+    jira.atlassian.com/project-key: PAYMENT
+    bamboo.atlassian.com/build-plan-key: PAYM-SOV2
+    bamboo.atlassian.com/deployment-project-id: '212205588'
+    sonarqube.org/project-key: com.telstra.digitalservices:svc-payment-sales-order-v2
+    newrelic.com/account-id: '2115065'
+    newrelic.com/application-name: svc-payment-sales-order-v2
+  tags:
+    - java
+    - payments
+    - gradle
+    - springboot
+    - amp
+  links:
+    - url: https://confluence.tools.telstra.com/display/PAYMENTS/svc-payment-sales-order-v2
+      title: Tech Design
+      icon: Settings
+    - url: https://confluence.tools.telstra.com/display/PAYMENTS/Payment+-+support+plan
+      title: Support Plan
+      icon: Help
+    - url: https://confluence.tools.telstra.com/pages/viewpage.action?pageId=219546358
+      title: Recovery Plan
+      icon: Healing
+    - url: https://confluence.tools.telstra.com/display/PAYMENTS/svc-payment-sales-order-v2+Runbook
+      title: Runbook
+      icon: DirectionsRun
+    - url: https://one.nr/0YBR6zgn7RO
+      title: New Relic Summary
+      icon: DirectionsRun
+spec:
+  type: service
+  owner: toledo
+  system: payment-upfront
+  lifecycle: Production
+  providesApis:
+    - sales-order-payment-v2-api
+  consumesApis:
+    - payment-vault-application-api
+    - payment-vault-application-v2-api
+    - payment-sales-datastore-api
+    - external-braintree-api
